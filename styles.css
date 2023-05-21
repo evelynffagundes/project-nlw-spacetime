@@ -73,14 +73,14 @@ nav {
 }
 .memory img {
   width: 100%;
-  height: 280px;
+  height: 400px;
   object-fit: cover; /*serve para melhorar a proporção em todos os lados da imagem na página */
   border-radius: 8px;
   transition: transform 0.3s ease-in-out; /*aumenta a imagem de forma mais lenta*/
 }
 .memory div {
   width: 100%;
-  height: 280px;
+  height: 500px;
   overflow: hidden;
   border-radius: 8px;
 }
