@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /*serve de referencia para ajustar no responsivo*/
+  font-size: 16px;
+}
+::-webkit-scrollbar {
+  /*customização do scroll bar barra de rolagem da página*/
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  /*customização da parte em que fica a barra de rolagem*/
+  background-color: #2c2c31;
+}
+::-webkit-scrollbar-thumb {
+  /*customização da parte da barra de rolagem*/
+  background-color: #9e9ea0;
+}
+@keyframes entering {
+  /*serve para um efeito de entrada na pagina*/
+  /*0% { background-color: red;}
+  30% {background-color: green;}
+  78%{opacity: 0;}
+  100%{opacity: 1;}* 
+  usa esse modelo quando quer colocar transição em quadros*/
+  /*from {opacity: 0;} 
+  to{opacity: 1;}
+  usa este quando só quer um efeito de entrada e saída*/
+
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body {
+  background-color: #121215;
+  color: #eaeaea;
+  font-family: "Roboto", sans-serif;
+  display: grid; /*define como ficará o layout*/
+  grid-template-areas: "profile timeline";
+  grid-template-columns: 1fr 1fr; /*divide a pagina em colunas iguais*/
+  grid-template-rows: 100vh;
+}
+
+nav {
+  padding: 64px; /*espaçamento de toda a nav com as bordas*/
+  grid-area: timeline;
+  overflow-y: scroll; /*apenas uma parte vai rolar*/
+  animation: entering 0.7s ease-in-out; /*chama a animação de entrada que foi criada*/
+}
+.memory {
+  display: flex; /*flexbox: Deixa os itens dentro da classe mais flexiveis*/
+  flex-direction: column; /*Deixa os itens dentro da classe mais flexiveis* afeta os elementos dentro da classe pai*/
+  gap: 16px;
+
+  text-decoration: none; /*retira o sublinhado do link*/
+  color: #eaeaea;
+  margin-bottom: 54px; /*espaçamento entre cada link*/
+}
+.memory small {
+  color: #bebebf;
+  font-size: 0.75 rem; /*usa rem em vez de px quando esta ajustando a pagina no responsivo. divide o 16px x 12px = 0.75rem*/
+}
+.memory h1 {
+  font-size: 2rem;
+}
+.memory img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover; /*serve para melhorar a proporção em todos os lados da imagem na página */
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out; /*aumenta a imagem de forma mais lenta*/
+}
+.memory div {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.memory:hover img {
+  /*destaca a imagem do texto */
+  transform: scale(1.1);
+}
+.memory p {
+  font-size: 1.2rem;
+  color: #bebebf;
+  line-height: 28px; /* espaçamento entre uma linha e outra do texto*/
+}
+aside {
+  grid-area: profile;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  border-right: 1px solid;
+  border-image: linear-gradient(#727275, #2c2c31) 1;
+
+  background-image: url(./assets/background.svg);
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+aside * {
+  /* seleciona elementos dentro do aside*/
+  animation: entering 0.7s ease-in-out; /*chama a animação de entrada que foi criada*/
+}
+aside img:nth-child(2) {
+  /* diz que a imagem de referencia é a segunda imagem*/
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  background: linear-gradient(#d39e33, #ed5636, #633bbc) padding-box,
+    linear-gradient(#d39e33, #ed5636, #633bbc) border-box;
+}
+aside p {
+  font-size: 2rem;
+  text-align: center;
+}
+aside span {
+  font-size: 0.75rem;
+  color: #9e9ea0;
+}
+@media (max-width: 760px) {
+  :root {
+    font-size: 14px;
+  }
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.8fr;
+    grid-template-areas:
+      "profile"
+      "timeline";
+  }
+}
+aside {
+  border-right: none;
+  padding: 32px 12px;
+}
+nav {
+  overflow-y: visible;
+  padding: 22px;
+}
