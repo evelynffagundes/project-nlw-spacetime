@@ -30,6 +30,7 @@
   to{opacity: 1;}
   usa este quando só quer um efeito de entrada e saída*/
 
+
   from {
     opacity: 0;
     transform: translateY(-200px);
@@ -42,16 +43,18 @@
 body {
   background-color: #121215;
   color: #eaeaea;
+
   font-family: "Roboto", sans-serif;
+
   display: grid; /*define como ficará o layout*/
   grid-template-areas: "profile timeline";
   grid-template-columns: 1fr 1fr; /*divide a pagina em colunas iguais*/
   grid-template-rows: 100vh;
 }
-
 nav {
   padding: 64px; /*espaçamento de toda a nav com as bordas*/
   grid-area: timeline;
+
   overflow-y: scroll; /*apenas uma parte vai rolar*/
   animation: entering 0.7s ease-in-out; /*chama a animação de entrada que foi criada*/
 }
@@ -62,7 +65,7 @@ nav {
 
   text-decoration: none; /*retira o sublinhado do link*/
   color: #eaeaea;
-  margin-bottom: 54px; /*espaçamento entre cada link*/
+  margin-bottom: 64px; /*espaçamento entre cada link*/
 }
 .memory small {
   color: #bebebf;
@@ -70,24 +73,26 @@ nav {
 }
 .memory h1 {
   font-size: 2rem;
+  color: #eaeaea;
 }
 .memory img {
   width: 100%;
-  height: 400px;
+  height: 280px;
   object-fit: cover; /*serve para melhorar a proporção em todos os lados da imagem na página */
   border-radius: 8px;
   transition: transform 0.3s ease-in-out; /*aumenta a imagem de forma mais lenta*/
-}
-.memory div {
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  border-radius: 8px;
 }
 .memory:hover img {
   /*destaca a imagem do texto */
   transform: scale(1.1);
 }
+.memory div {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
 .memory p {
   font-size: 1.2rem;
   color: #bebebf;
@@ -131,10 +136,11 @@ aside span {
   font-size: 0.75rem;
   color: #9e9ea0;
 }
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   :root {
     font-size: 14px;
   }
+
   body {
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 0.8fr;
@@ -142,7 +148,7 @@ aside span {
       "profile"
       "timeline";
   }
-}
+
 aside {
   border-right: none;
   padding: 32px 12px;
@@ -150,4 +156,6 @@ aside {
 nav {
   overflow-y: visible;
   padding: 22px;
+}
+
 }
